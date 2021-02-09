@@ -7,10 +7,15 @@
 </head>
 <body>
   <!-- HTML goes here -->
-
+  <button id = "btn">Click Me</button>
   <script>
     // JavaScript goes here
-
+      const button = document.querySelector("#btn")
+      function btnPressed()
+      {
+        console.log("Button Pressed")
+      }
+      button.addEventListener("click",btnPressed)
   </script>
 </body>
 </html>

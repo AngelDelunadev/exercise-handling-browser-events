@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MadLib</title>
 </head>
+
 <body>
   <!-- HTML goes here -->
   <h1>Things to Buy</h1>
 
   <ul id="shoppingList">
-    <li>Waffles</li>
-    <li>Pancakes</li>
-    <li>Bacon</li>
-    <li>Eggs</li>
+    <li>Waffles <button class=del id="waffles">del</button></li>
+    <li>Pancakes <button class=del id="pancakes">del</button></li>
+    <li>Bacon <button class=del id="bacon">del</button></li>
+    <li>Eggs <button class=del id="eggs">del</button></li>
   </ul>
 
   <form id="newItem">
@@ -25,7 +27,39 @@
 
   <script>
     // JavaScript goes here
-    
+    const form = document.getElementById("newItem")
+    const ul = document.getElementById("shoppingList")
+    function addItem(event) {
+
+      const input = document.getElementById("item")
+      const li = document.createElement("li")
+      ul.append(li)
+      li.innerHTML = `${input.value} <button class = 'del' id = ${input.value}> del </button>`
+      event.preventDefault();
+      input.value = ""
+    }
+    form.addEventListener("submit", addItem)
+
+    const buttons = document.querySelector(".del")
+    buttons.addEventListener("click",delItem)
+
+    function delItem(event)
+    {
+      console.log('start')
+      const listItems = document.querySelector("#shoppingList li")
+      for(i =0; i < listItems; i ++)
+      {
+        console.log(event.id.toLowerCase())
+        if (event.id.toLowerCase() == listItems[i].textContent)
+        {
+          ul.remove(ul[i]);
+        }
+      }
+      
+    }
+
+
   </script>
 </body>
+
 </html>

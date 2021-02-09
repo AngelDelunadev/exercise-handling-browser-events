@@ -7,9 +7,16 @@
 </head>
 <body>
   <!-- HTML goes here -->
-
+  <button id = btn>Click Me</button>
   <script>
     // JavaScript goes here
+    const button = document.getElementById("btn")
+    function btnPressed()
+    {
+      
+      console.log("You left clicked")
+    }
+    button.addEventListener("click" ,btnPressed)
 
   </script>
 </body>
